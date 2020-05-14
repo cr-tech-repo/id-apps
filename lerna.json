@@ -1,0 +1,8 @@
+{
+    "packages": [
+        "apps/*",
+        "components/theme",
+        "modules/*"
+    ],
+    "version": "1.0.72"
+}

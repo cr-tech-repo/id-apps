@@ -1,0 +1,56 @@
+{
+    "name": "@cicis/core",
+    "version": "1.0.72",
+    "private": true,
+    "description": "Commonly used configs, schemas, utilities and low level services for cic Identity Server frontend apps",
+    "keywords": [
+        "cic",
+        "cic IS",
+        "cic Identity Server",
+        "cic Identity Apps",
+        "core",
+        "common",
+        "utils"
+    ],
+    "main": "dist/src/index.js",
+    "types": "dist/typings/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "prebuild": "npm run clean",
+        "build": "npm run compile",
+        "clean": "rimraf ./dist",
+        "compile": "run-script-os",
+        "compile:win32": "..\\..\\node_modules\\.bin\\tsc -p tsconfig.json",
+        "compile:default": "../../node_modules/.bin/tsc -p tsconfig.json",
+        "lint": "tslint -t stylish --project ."
+    },
+    "author": "cic",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@cicis/authentication": "^1.0.72",
+        "@cicis/http": "^1.0.72",
+        "crypto-js": "^4.0.0",
+        "package.json": "^2.0.1"
+    },
+    "devDependencies": {
+        "rimraf": "^3.0.2",
+        "run-script-os": "^1.0.7"
+    },
+    "peerDependencies": {
+        "@types/history": "*",
+        "@types/lodash": "*",
+        "@types/react": "*",
+        "@types/react-notification-system": "*",
+        "@types/ua-parser-js": "*",
+        "axios": "*",
+        "history": "*",
+        "lodash": "*",
+        "react": "*",
+        "react-notification-system": "*",
+        "tslint": "*",
+        "typescript": "*",
+        "ua-parser-js": "*"
+    }
+}

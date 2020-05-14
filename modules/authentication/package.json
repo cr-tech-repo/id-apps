@@ -1,0 +1,30 @@
+{
+    "name": "@cicis/authentication",
+    "version": "1.0.72",
+    "description": "Authentication module for cic Identity Server Webapps.",
+    "keywords": [
+        "cic",
+        "cic-IS",
+        "cic Identity Server",
+        "cic Identity Apps",
+        "authentication"
+    ],
+    "main": "src/index.js",
+    "scripts": {
+        "lint": "tslint -t stylish --project ."
+    },
+    "author": "cic",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "jsrsasign": "^8.0.12",
+        "package.json": "^2.0.1"
+    },
+    "devDependencies": {
+        "rimraf": "^3.0.2"
+    },
+    "peerDependencies": {
+        "await-semaphore": "*",
+        "axios": "*",
+        "crypto-js": "*"
+    }
+}

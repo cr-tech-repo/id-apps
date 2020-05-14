@@ -1,0 +1,36 @@
+{
+    "name": "@cicis/validation",
+    "version": "1.0.72",
+    "description": "Validator module for cic Identity Server web-apps.",
+    "keywords": [
+        "cic",
+        "cic IS",
+        "cic Identity Server",
+        "cic Identity Apps",
+        "validation"
+    ],
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "prebuild": "npm run clean",
+        "build": "node scripts/build-module.js && npm run compile",
+        "clean": "rimraf ./dist",
+        "compile": "run-script-os",
+        "compile:win32": "..\\..\\node_modules\\.bin\\tsc -p tsconfig.json",
+        "compile:default": "../../node_modules/.bin/tsc -p tsconfig.json",
+        "lint": "tslint -t stylish --project ."
+    },
+    "author": "cic",
+    "license": "Apache-2.0",
+    "peerDependencies": {
+        "@hapi/joi": "*",
+        "axios": "^0.19.2"
+    },
+    "devDependencies": {
+        "rimraf": "^3.0.2",
+        "run-script-os": "^1.0.7"
+    }
+}

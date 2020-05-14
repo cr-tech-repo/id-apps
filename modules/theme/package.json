@@ -1,0 +1,32 @@
+{
+    "name": "@cicis/theme",
+    "version": "1.0.72",
+    "description": "Theme for web components of cic Identity Server Webapps.",
+    "keywords": [
+        "cic",
+        "cic IS",
+        "cic Identity Server",
+        "cic Identity Apps",
+        "theme"
+    ],
+    "main": "src/index.js",
+    "scripts": {
+        "prebuild": "npm run clean",
+        "build": "npm run compile",
+        "clean": "rimraf ./lib",
+        "compile": "node scripts/build-theme.js",
+        "watch": "watch \"npm run build\" src"
+    },
+    "author": "cic",
+    "license": "Apache-2.0",
+    "devDependencies": {
+        "clean-css": "^4.2.1",
+        "less-plugin-npm-import": "^2.1.0",
+        "less-plugin-rewrite-import": "^0.1.1",
+        "rimraf": "^3.0.2"
+    },
+    "peerDependencies": {
+        "fs-extra": "*",
+        "less": "*"
+    }
+}

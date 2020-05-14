@@ -1,0 +1,37 @@
+{
+    "overview": {
+        "enabled": true,
+        "accountStatus": true,
+        "accountActivity": true,
+        "accountSecurity": true,
+        "consentsControl": true
+    },
+    "personalInfo": {
+        "enabled": true,
+        "profile": true,
+        "linkedAccounts": false,
+        "externalLogins": false,
+        "exportProfile": true
+    },
+    "applications": true,
+    "security": {
+        "enabled": true,
+        "changePassword": true,
+        "accountRecovery": {
+            "enabled": true,
+            "securityQuestions": true,
+            "emailRecovery": true
+        },
+        "multiFactorAuthentication": {
+            "enabled": true,
+            "sms": true,
+            "fido": true,
+            "authenticatorApp": {
+                "enabled": true
+            }
+        },
+        "activeSessions": true,
+        "manageConsents": true
+    },
+    "operations": true
+}

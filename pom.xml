@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * Copyright (c) 2019, cic Inc. (http://www.cic.org) All Rights Reserved.
+ *
+ * cic Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.cic.identity.apps</groupId>
+    <artifactId>identity-apps</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.72-SNAPSHOT</version>
+    <name>cic Identity Server Apps - Parent</name>
+    <description>cic Identity Server Web Apps</description>
+
+    <url>http://cic.org</url>
+
+    <parent>
+        <groupId>org.cic</groupId>
+        <artifactId>cic</artifactId>
+        <version>5</version>
+    </parent>
+
+    <scm>
+        <url>https://github.com/cic/identity-apps.git</url>
+        <developerConnection>scm:git:https://github.com/cic/identity-apps.git</developerConnection>
+        <connection>scm:git:https://github.com/cic/identity-apps.git</connection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <modules>
+        <module>apps/user-portal</module>
+        <module>apps/admin-portal</module>
+        <module>apps/authentication-portal</module>
+        <module>apps/recovery-portal</module>
+        <module>apps/email-otp-authentication-portal</module>
+        <module>apps/sms-otp-authentication-portal</module>
+        <module>apps/totp-authentication-portal</module>
+        <module>apps/x509-certificate-authentication-portal</module>
+        <module>components/theme</module>
+        <module>components/org.cic.identity.apps.common</module>
+        <module>features/org.cic.identity.apps.common.server.feature</module>
+        <module>features/org.cic.identity.apps.user.portal.server.feature</module>
+        <module>features/org.cic.identity.apps.admin.portal.server.feature</module>
+        <module>features/org.cic.identity.apps.authentication.portal.server.feature</module>
+        <module>features/org.cic.identity.apps.recovery.portal.server.feature</module>
+        <module>features/org.cic.identity.apps.feature</module>
+    </modules>
+
+    <repositories>
+
+        <repository>
+            <id>cic-nexus</id>
+            <name>cic internal Repository</name>
+            <url>http://maven.cic.org/nexus/content/groups/cic-public/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+        </repository>
+
+        <repository>
+            <id>cic.releases</id>
+            <name>cic internal Repository</name>
+            <url>http://maven.cic.org/nexus/content/repositories/releases/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+        </repository>
+
+        <repository>
+            <id>cic.snapshots</id>
+            <name>Apache Snapshot Repository</name>
+            <url>http://maven.cic.org/nexus/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <name>cic Nexus Release Repository</name>
+            <url>https://maven.cic.org/nexus/service/local/staging/deploy/maven2/</url>
+        </repository>
+        <snapshotRepository>
+            <id>cic.snapshots</id>
+            <name>cic Snapshot Repository</name>
+            <url>https://maven.cic.org/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>cic.releases</id>
+            <name>cic internal Repository</name>
+            <url>http://maven.cic.org/nexus/content/repositories/releases/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>cic.snapshots</id>
+            <name>cic Snapshot Repository</name>
+            <url>http://maven.cic.org/nexus/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+        <pluginRepository>
+            <id>cic-nexus</id>
+            <name>cic internal Repository</name>
+            <url>http://maven.cic.org/nexus/content/groups/cic-public/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>org.apache.felix.scr.ds-annotations</artifactId>
+                <version>${apache.felix.scr.ds.annotations.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.eclipse.osgi</groupId>
+                <artifactId>org.eclipse.osgi.services</artifactId>
+                <version>${equinox.osgi.services.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.cic.carbon</groupId>
+                <artifactId>org.cic.carbon.logging</artifactId>
+                <version>${carbon.logging.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon</groupId>
+                <artifactId>org.cic.carbon.registry.core</artifactId>
+                <version>${carbon.kernel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.identity.application.mgt</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.inbound.auth.oauth2</groupId>
+                <artifactId>org.cic.carbon.identity.oauth</artifactId>
+                <version>${carbon.identity.oauth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.inbound.auth.oauth2</groupId>
+                <artifactId>org.cic.carbon.identity.oauth.common</artifactId>
+                <version>${carbon.identity.oauth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.commons</groupId>
+                <artifactId>org.cic.carbon.tenant.common</artifactId>
+                <version>${carbon.commons.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.cic.identity.apps</groupId>
+                <artifactId>user-portal</artifactId>
+                <version>${project.version}</version>
+                <type>war</type>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.identity.apps</groupId>
+                <artifactId>admin-portal</artifactId>
+                <version>${project.version}</version>
+                <type>war</type>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.identity.apps</groupId>
+                <artifactId>authentication-portal</artifactId>
+                <version>${project.version}</version>
+                <type>war</type>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.identity.apps</groupId>
+                <artifactId>recovery-portal</artifactId>
+                <version>${project.version}</version>
+                <type>war</type>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.identity.apps</groupId>
+                <artifactId>identity-theme</artifactId>
+                <version>${project.version}</version>
+                <type>zip</type>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io.cic</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.cic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.identity.template.mgt</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang.cic</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons-lang.cic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>${javax.jsp-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${javax.servelet.jstl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec.cic</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons-codec.cic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.ws.commons.axiom</groupId>
+                <artifactId>axiom-api</artifactId>
+                <version>${axiom.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>xerces</groupId>
+                        <artifactId>xercesImpl</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.association.account</groupId>
+                <artifactId>org.cic.carbon.identity.user.account.association</artifactId>
+                <version>${org.cic.carbon.identity.association.account}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.identity.application.common</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.identity.mgt.endpoint.util</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.identity.application.authentication.endpoint.util</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.identity.application.authentication.endpoint.i18n</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.identity.core</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.identity.user.profile</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.identity.application.authentication.framework</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.identity.notification.mgt</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.identity.provisioning</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.extension.identity.authenticator.outbound.smsotp</groupId>
+                <artifactId>org.cic.carbon.extension.identity.authenticator.smsotp.connector</artifactId>
+                <version>${carbon.extension.identity.authenticator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon</groupId>
+                <artifactId>org.cic.carbon.core</artifactId>
+                <version>${carbon.kernel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon</groupId>
+                <artifactId>org.cic.carbon.user.core</artifactId>
+                <version>${carbon.kernel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.outbound.auth.oidc</groupId>
+                <artifactId>org.cic.carbon.identity.application.authenticator.oidc</artifactId>
+                <version>${org.cic.carbon.identity.outbound.auth.oidc}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon</groupId>
+                <artifactId>org.cic.carbon.ui</artifactId>
+                <version>${carbon.kernel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity</groupId>
+                <artifactId>org.cic.carbon.identity.mgt</artifactId>
+                <version>${carbon.identity.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity</groupId>
+                <artifactId>org.cic.carbon.identity.application.authentication.endpoint.util</artifactId>
+                <version>${carbon.identity.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.extension.identity.authenticator.utils</groupId>
+                <artifactId>org.cic.carbon.extension.identity.helper</artifactId>
+                <version>${identity.extension.utils}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.identity.event</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.identity.user.registration.stub</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.identity.mgt.stub</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.identity.mgt</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.carbon.identity.framework</groupId>
+                <artifactId>org.cic.carbon.idp.mgt</artifactId>
+                <version>${carbon.identity.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${com.google.code.gson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.ws.rs</groupId>
+                <artifactId>javax.ws.rs-api</artifactId>
+                <version>${javax.ws.rs-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.securevault</groupId>
+                <artifactId>org.cic.securevault</artifactId>
+                <version>${org.cic.securevault.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.orbit.org.owasp.encoder</groupId>
+                <artifactId>encoder</artifactId>
+                <version>${encoder.cic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.owasp.encoder</groupId>
+                <artifactId>encoder-jsp</artifactId>
+                <version>${encoder-jsp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-core</artifactId>
+                <version>${org.apache.cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-rs-extension-providers</artifactId>
+                <version>${org.apache.cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-rs-client</artifactId>
+                <version>${org.apache.cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.jersey</groupId>
+                <artifactId>jersey-client</artifactId>
+                <version>${jersey-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${com.fasterxml.jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${com.fasterxml.jackson.annotation.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${com.fasterxml.jackson.annotation.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.jersey.contribs</groupId>
+                <artifactId>jersey-multipart</artifactId>
+                <version>${jersey-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.jaxrs</groupId>
+                <artifactId>jackson-jaxrs-json-provider</artifactId>
+                <version>${com.fasterxml.jackson.jaxrs-json-provider-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.orbit.org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpcomponents-httpclient.cic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents.cic</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>${httpcore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.json.cic</groupId>
+                <artifactId>json</artifactId>
+                <version>${json.cic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.taglibs</groupId>
+                <artifactId>taglibs-standard-impl</artifactId>
+                <version>${taglibs-standard-impl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat</groupId>
+                <artifactId>tomcat-catalina</artifactId>
+                <version>${apache.tomcat-catalina.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons-codec.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.cic.identity.apps</groupId>
+                <artifactId>org.cic.identity.apps.common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.identity.apps</groupId>
+                <artifactId>org.cic.identity.apps.common.server.feature</artifactId>
+                <version>${project.version}</version>
+                <type>zip</type>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.identity.apps</groupId>
+                <artifactId>org.cic.identity.apps.user.portal.server.feature</artifactId>
+                <version>${project.version}</version>
+                <type>zip</type>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.identity.apps</groupId>
+                <artifactId>org.cic.identity.apps.admin.portal.server.feature</artifactId>
+                <version>${project.version}</version>
+                <type>zip</type>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.identity.apps</groupId>
+                <artifactId>org.cic.identity.apps.authentication.portal.server.feature</artifactId>
+                <version>${project.version}</version>
+                <type>zip</type>
+            </dependency>
+            <dependency>
+                <groupId>org.cic.identity.apps</groupId>
+                <artifactId>org.cic.identity.apps.recovery.portal.server.feature</artifactId>
+                <version>${project.version}</version>
+                <type>zip</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <!-- Build all npm packages (apps & modules) -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <version>1.6.0</version>
+                <artifactId>exec-maven-plugin</artifactId>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <id>npm install (initialize)</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>initialize</phase>
+                        <configuration>
+                            <executable>npm</executable>
+                            <arguments>
+                                <argument>install</argument>
+                            </arguments>
+                            <workingDirectory>${basedir}</workingDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm run build (compile)</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>compile</phase>
+                        <configuration>
+                            <executable>npm</executable>
+                            <arguments>
+                                <argument>run</argument>
+                                <argument>build</argument>
+                            </arguments>
+                            <workingDirectory>${basedir}</workingDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <environmentVariables>
+                        <!-- The following parameters create an NPM sandbox for CI -->
+                        <NPM_CONFIG_PREFIX>${basedir}/npm</NPM_CONFIG_PREFIX>
+                        <NPM_CONFIG_CACHE>${NPM_CONFIG_PREFIX}/cache</NPM_CONFIG_CACHE>
+                        <NPM_CONFIG_TMP>${project.build.directory}/npmtmp</NPM_CONFIG_TMP>
+                    </environmentVariables>
+                </configuration>
+            </plugin>
+
+            <!-- Release -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <preparationGoals>clean install</preparationGoals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.1</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>3.0.4</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <properties>
+        <carbon.p2.plugin.version>1.5.3</carbon.p2.plugin.version>
+
+        <equinox.osgi.services.version>3.5.100.v20160504-1419</equinox.osgi.services.version>
+        <apache.felix.scr.ds.annotations.version>1.2.4</apache.felix.scr.ds.annotations.version>
+        <osgi.framework.imp.pkg.version.range>[1.7.0, 2.0.0)</osgi.framework.imp.pkg.version.range>
+        <osgi.service.component.imp.pkg.version.range>[1.2.0, 2.0.0)</osgi.service.component.imp.pkg.version.range>
+
+        <commons-logging.imp.pkg.version.range>[1.2, 2.0)</commons-logging.imp.pkg.version.range>
+
+        <carbon.identity.version>5.0.7</carbon.identity.version>
+        <carbon.kernel.version>4.6.0</carbon.kernel.version>
+        <carbon.kernel.imp.pkg.version.range>[4.5.0, 5.0.0)</carbon.kernel.imp.pkg.version.range>
+        <carbon.kernel.registry.imp.pkg.version.range>[1.0.1, 2.0.0)</carbon.kernel.registry.imp.pkg.version.range>
+        <carbon.user.api.imp.pkg.version.range>[1.0.1, 2.0.0)</carbon.user.api.imp.pkg.version.range>
+        <carbon.commons.version>4.7.22</carbon.commons.version>
+        <carbon.commons.imp.pkg.version.range>[4.7.0, 5.0.0)</carbon.commons.imp.pkg.version.range>
+        <carbon.logging.version>4.4.39</carbon.logging.version>
+
+        <carbon.base.imp.pkg.version.range>[1.0.0, 2.0.0)</carbon.base.imp.pkg.version.range>
+        <org.cic.carbon.identity.outbound.auth.oidc>5.1.20</org.cic.carbon.identity.outbound.auth.oidc>
+
+        <carbon.extension.identity.authenticator.version>3.0.0</carbon.extension.identity.authenticator.version>
+        <commons-codec.version>1.10</commons-codec.version>
+        <org.cic.carbon.identity.association.account>5.1.5</org.cic.carbon.identity.association.account>
+        <identity.extension.utils>1.0.8</identity.extension.utils>
+        <carbon.identity.framework.version>5.16.73</carbon.identity.framework.version>
+        <carbon.identity.framework.imp.pkg.version.range>[5.0.0, 6.0.0)</carbon.identity.framework.imp.pkg.version.range>
+        <carbon.identity.oauth.version>6.2.142</carbon.identity.oauth.version>
+        <carbon.identity.oauth.imp.pkg.version.range>[6.1.0, 7.0.0)</carbon.identity.oauth.imp.pkg.version.range>
+
+        <commons-io.cic.version>2.4.0.cicv1</commons-io.cic.version>
+        <commons-lang.cic.version>2.6.0.cicv1</commons-lang.cic.version>
+        <servlet-api.version>2.5</servlet-api.version>
+        <javax.jsp-api.version>2.0</javax.jsp-api.version>
+        <javax.servelet.jstl.version>1.2</javax.servelet.jstl.version>
+        <jersey-version>1.19.1</jersey-version>
+        <com.fasterxml.jackson.version>2.9.7</com.fasterxml.jackson.version>
+        <com.fasterxml.jackson.annotation.version>2.9.8</com.fasterxml.jackson.annotation.version>
+        <com.fasterxml.jackson.jaxrs-json-provider-version>2.9.7</com.fasterxml.jackson.jaxrs-json-provider-version>
+        <com.google.code.gson.version>2.3.1</com.google.code.gson.version>
+        <commons-codec.cic.version>1.4.0.cicv1</commons-codec.cic.version>
+        <axiom.version>1.2.11-cicv16</axiom.version>
+        <javax.ws.rs-api.version>2.1.1</javax.ws.rs-api.version>
+        <org.cic.securevault.version>1.1.3</org.cic.securevault.version>
+        <encoder.cic.version>1.2.0.cicv1</encoder.cic.version>
+        <encoder-jsp.version>1.2.2</encoder-jsp.version>
+        <org.apache.cxf.version>3.3.1</org.apache.cxf.version>
+        <httpcomponents-httpclient.cic.version>4.3.1.cicv2</httpcomponents-httpclient.cic.version>
+        <httpcore.version>4.3.3.cicv1</httpcore.version>
+        <json.cic.version>3.0.0.cicv1</json.cic.version>
+        <taglibs-standard-impl.version>1.2.5</taglibs-standard-impl.version>
+        <apache.tomcat-catalina.version>9.0.11</apache.tomcat-catalina.version>
+    </properties>
+</project>
